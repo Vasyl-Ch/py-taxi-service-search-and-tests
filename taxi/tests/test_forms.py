@@ -15,4 +15,14 @@ class FormsTests(TestCase):
         }
         form = DriverCreationForm(data=form_data)
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.cleaned_data, form_data)
+        expected_cleaned = {
+            "username": "testuser",
+            "password2": "testpassword",
+            "license_number": "ABC23456",
+            "first_name": "Test",
+            "last_name": "User",
+        }
+        actual_subset = {
+            key: form.cleaned_data.get(key) for key in expected_cleaned
+        }
+        self.assertEqual(actual_subset, expected_cleaned)

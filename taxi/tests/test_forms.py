@@ -17,7 +17,6 @@ class FormsTests(TestCase):
         self.assertTrue(form.is_valid())
         expected_cleaned = {
             "username": "testuser",
-            "password2": "testpassword",
             "license_number": "ABC23456",
             "first_name": "Test",
             "last_name": "User",

@@ -9,7 +9,7 @@ class PublicViewsTests(TestCase):
     def test_index(self):
         url = reverse("taxi:index")
         response = self.client.get(url)
-        self.assertNotEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
 
 class PrivateViewsTests(TestCase):
